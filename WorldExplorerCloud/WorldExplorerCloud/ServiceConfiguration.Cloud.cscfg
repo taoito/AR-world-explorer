@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="WorldExplorerCloud" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2012-10.1.8">
+  <Role name="ARWebRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=arworldstorage;AccountKey=eLL2gemAgUi9cJRvQSNaxat2B2/iPhUG/DX36LFFjhULMY3rW1YZF0K1GnFG9+I4JK9OqJXj0cjfLmJIhYloAg==" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=arworldstorage;AccountKey=eLL2gemAgUi9cJRvQSNaxat2B2/iPhUG/DX36LFFjhULMY3rW1YZF0K1GnFG9+I4JK9OqJXj0cjfLmJIhYloAg==" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="ARWorkerRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=arworldstorage;AccountKey=eLL2gemAgUi9cJRvQSNaxat2B2/iPhUG/DX36LFFjhULMY3rW1YZF0K1GnFG9+I4JK9OqJXj0cjfLmJIhYloAg==" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=arworldstorage;AccountKey=eLL2gemAgUi9cJRvQSNaxat2B2/iPhUG/DX36LFFjhULMY3rW1YZF0K1GnFG9+I4JK9OqJXj0cjfLmJIhYloAg==" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

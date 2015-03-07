@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ARWebRole.Models.GooglePlaceTable>
+
+@{
+    ViewBag.Title = "Google Places";
+}
+
+<h2>Google Places</h2>
+
+<p>
+    @Html.ActionLink("Refresh", "Index")
+    @Html.ActionLink("More Details", "MoreDetails")
+</p>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Location
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Website 
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td width="90">
+            (@Html.DisplayFor(modelItem => item.Lat),
+            @Html.DisplayFor(modelItem => item.Lng))
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td width="120">
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            <a href ="@Html.DisplayFor(modelItem => item.Website)">Link</a>
+        </td>
+    
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { PartitionKey = item.PartitionKey, RowKey=item.RowKey  })
+        </td>
+    </tr>
+}
+
+</table>

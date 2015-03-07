@@ -1,0 +1,124 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ARControls="clr-namespace:GART.Controls;assembly=GART"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
+    x:Class="WorldExplorer.MainPage"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait" >
+
+    <phone:PhoneApplicationPage.Resources>
+
+        <!-- Used for authentication against Bing maps -->
+        <maps:ApplicationIdCredentialsProvider x:Key="BingCredentials" ApplicationId="AsoYwOquow1D9inkw-YSN1iYJ7xPqmsKHvKPUZP_7B_swwwPTbdEDyoF_gibHtpT" />
+        
+        <DataTemplate x:Key="ARLabel">
+            <Border BorderBrush="Black" BorderThickness="0" Opacity="0.5" CornerRadius="1" Background="#000000" Width="Auto">
+                <!--<Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="320" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.RowSpan="3" Source="restaurant.png" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <TextBlock x:Name="NameBlock" Grid.Row="0" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="{Binding Name}" FontSize="30" VerticalAlignment="Center" Margin="0,0,4,0" d:LayoutOverrides="Width" TextTrimming="WordEllipsis" />
+                </Grid>-->
+                <Button x:Name="MoreInfo" HorizontalAlignment="Center" Opacity="1.0" Content="{Binding DisplayName}" CommandParameter="{Binding Name}" Click="SampleMoreInfo_Click"/>
+            </Border>
+        </DataTemplate>
+        
+    </phone:PhoneApplicationPage.Resources>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Opacity="0.5" Mode="Default" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="StartAR" IconUri="/icons/appbar.video.png" IsEnabled="True" Text="Start AR" Click="StartARButton_Click"/>
+            <shell:ApplicationBarIconButton x:Name="MapButton" IconUri="/icons/appbar.map.png" IsEnabled="True" Text="map" Click="MapButton_Click"/>
+            <shell:ApplicationBarIconButton x:Name="HeadingButton" IconUri="/icons/appbar.heading.png" IsEnabled="True" Text="Heading" Click="HeadingButton_Click"/>
+            <shell:ApplicationBarIconButton x:Name="Options" IconUri="/icons/appbar.feature.settings.rest.png" IsEnabled="True" Text="Options" Click="OptionsButton_Click"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="ShowLocal" Text="hide local sites" Click="ShowLocal_Click" />
+                <shell:ApplicationBarMenuItem x:Name="ShowRestaurant" Text="show restaurants" Click="ShowRestaurant_Click" />
+                <shell:ApplicationBarMenuItem x:Name="ShowEvents" Text="show social events" Click="ShowEvents_Click" />
+                <shell:ApplicationBarMenuItem x:Name="CustomTag" Text="tag current location" Click="CustomTag_Click" />
+                <!--
+                <shell:ApplicationBarMenuItem x:Name="FacebookLogin" Text="Log in Facebook" Click="LoginFacebookMenu_Click" />
+                <shell:ApplicationBarMenuItem x:Name="AddEvents" Text="add events" Click="AddEvents_Click" />
+                <shell:ApplicationBarMenuItem x:Name="FacebookLogout" Text="Log out Facebook" Click="LogoutFacebookMenu_Click" />
+                -->
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <Grid x:Name="LayoutRoot">
+        <ARControls:ARDisplay x:Name="ARDisplay" d:LayoutOverrides="Width" d:IsHidden="True">
+            <ARControls:VideoPreview x:Name="VideoPreview" />
+            <ARControls:OverheadMap x:Name="OverheadMap" CredentialsProvider="{StaticResource BingCredentials}" />
+            <ARControls:WorldView x:Name="WorldView" ItemTemplate="{StaticResource ARLabel}" />
+            <ARControls:HeadingIndicator x:Name="HeadingIndicator" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </ARControls:ARDisplay>
+
+        <Slider x:Name="RadiusSlider" Margin="8,0,8,221" Grid.Row="1" VerticalAlignment="Bottom" Minimum="20" Maximum="300" Value="100" SmallChange="10" LargeChange="100" ValueChanged="RadiusSlider_ValueChanged" Visibility="Collapsed" d:IsHidden="True"/>
+        <TextBox x:Name="SliderValue" HorizontalAlignment="Left" Height="57" Margin="31,0,0,217" TextWrapping="Wrap" Text="{Binding Value, ElementName=RadiusSlider}" VerticalAlignment="Bottom" Width="84" FontSize="13.333" Visibility="Collapsed" d:IsHidden="True"/>
+        <Button x:Name="BackOptionsButton" Content="Confirm" Height="122" Margin="144,0" Grid.Row="1" VerticalAlignment="Bottom" BorderThickness="0" Click="BackOptionsButton_Click" Visibility="Collapsed" d:IsHidden="True"/>
+        <TextBlock x:Name="SetRadiusText" Margin="23,0,0,290" Grid.Row="1" TextWrapping="Wrap" Text="Set Radius" FontSize="32" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="162" Visibility="Collapsed" d:IsHidden="True"/>
+        <Button x:Name="Facebook" Content="Connect to Facebook" Height="114" Margin="8,102,8,0" Grid.Row="1" VerticalAlignment="Top" BorderThickness="0" FontSize="32" Click="LoginFacebookButton_Click" Visibility="Collapsed" d:IsHidden="True"/>
+        <Border x:Name="Border" BorderBrush="#FF040E37" BorderThickness="10" Height="133" Margin="0,102,0,0" Grid.Row="1" VerticalAlignment="Top" Opacity="0.595" Visibility="Collapsed" d:IsHidden="True"/>
+
+        <Button x:Name="BackMoreInfoButton" Content="Back" Height="76" Margin="136,0,163,0" VerticalAlignment="Bottom" BorderThickness="0" Click="BackMoreInfoButton_Click" Visibility="Collapsed" d:IsHidden="True"/>
+        <Image x:Name="StreetViewMoreInfo" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="300" Margin="185,2,0,0" Visibility="Collapsed"/>
+        <TextBlock x:Name="NameBox" Height="150" TextWrapping="Wrap" Text="Name Box" VerticalAlignment="Top" TextAlignment="Left" FontSize="25" Margin="190,105,0,0" HorizontalAlignment="Left" Width="176" Visibility="Collapsed"/>
+        <Image x:Name="ImageMoreInfo" HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="180" Margin="2,0,0,0" Visibility="Collapsed"/>
+        <ScrollViewer x:Name="Scroller" VerticalScrollBarVisibility="Auto" Margin="0,220,0,102" Visibility="Collapsed">
+            <TextBlock x:Name="DescriptionBox" Margin="0,164,0,102" TextWrapping="Wrap" Text="Description" Visibility="Collapsed"/>
+        </ScrollViewer>
+        <ListBox x:Name="attendantListBox" ItemsSource="{Binding}" HorizontalAlignment="Right" Height="150" VerticalAlignment="Bottom" Width="250" Margin="0,0,10,100" Visibility="Collapsed">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding ImagePath}" Height="60" Width="60" Stretch="Fill" />
+                        <TextBlock Text="{Binding Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Grid x:Name="FacebookLogin" Grid.Row="1" Margin="12,0,12,0" d:IsHidden="True">
+            <phone:WebBrowser x:Name="FacebookLoginPage" IsScriptEnabled="True" Navigated="FacebookLoginPage_Navigated" Loaded="FacebookLoginPage_Loaded" Visibility="Collapsed"/>    
+        </Grid>
+        
+        <!--Calibration UI-->
+        <StackPanel Name="calibrationStackPanel" Background="Black" Opacity="1" Visibility="Collapsed" d:IsHidden="True">
+            <Image Opacity=".95" HorizontalAlignment="Center" Source="/WorldExplorer;component/Images/calibrate_compass.png" />
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center">The compass on your device needs to be calibrated.
+                Hold the device in front of you and sweep it through a figure 8 pattern as shown
+                until the calibration is complete.</TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
+                <TextBlock>heading accuracy:</TextBlock>
+                <TextBlock Name="calibrationTextBlock">0.0°</TextBlock>
+            </StackPanel>
+            <Button Name="calibrationButton" Content="Done" Click="CompassCalibrate_Click"></Button>
+        </StackPanel>
+        <!--End Calibration UI-->
+
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>

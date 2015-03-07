@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "WorldExplorerCloud", "WorldExplorerCloud\WorldExplorerCloud.ccproj", "{98BE08D8-5856-4F63-AC52-8127C38C689A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARWebRole", "ARWebRole\ARWebRole.csproj", "{99A10F61-D63C-476A-BFED-32F9C5D80EDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARWorkerRole", "ARWorkerRole\ARWorkerRole.csproj", "{02ACC99E-0167-401A-B5B0-D37333022C36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98BE08D8-5856-4F63-AC52-8127C38C689A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98BE08D8-5856-4F63-AC52-8127C38C689A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98BE08D8-5856-4F63-AC52-8127C38C689A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98BE08D8-5856-4F63-AC52-8127C38C689A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A10F61-D63C-476A-BFED-32F9C5D80EDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A10F61-D63C-476A-BFED-32F9C5D80EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A10F61-D63C-476A-BFED-32F9C5D80EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A10F61-D63C-476A-BFED-32F9C5D80EDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02ACC99E-0167-401A-B5B0-D37333022C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02ACC99E-0167-401A-B5B0-D37333022C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02ACC99E-0167-401A-B5B0-D37333022C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02ACC99E-0167-401A-B5B0-D37333022C36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
