@@ -18,7 +18,20 @@ The system design includes a lightweight mobile client on Windows Phone, and a b
 
     Since data filtering holds back from sending extra information about other places to the mobile (improving energy/data bandwidth saving), this can hurts performance if users decide to view details on another place on screen (higher latency, waiting to fetch from the cloud). Our system tries to balance the tradeoff between Energy/Data and Performance by introducing predictions: the cloud sends back details about additional places, it tries to be smart in selecting locations that users may be interested in, based on current time, access patterns, friends list, etc.
 
-4. Scalability:
+4. GART Library:
+
+    The GART library integrates Augmented Reality into a Windows Phone app using the Motion API shipped with Windows Phone Mango (WP7.5). GART is used to to generate the AR labels from coordinates sent from the cloud. The phone will pass location coordinates (received as part of the cloud’s JSON response for basic requests) into GART lib which will calculate the appropriate display location for the AR labels, containing place names and links to a page for information, which are made to appear on screen. The use of the GART library not only simplifies the code on the mobile side but allows to provide our application with more functionality i.e. with the different layers (food, social, personal) to filter place search results.
+
+5. Social Integration:
+
+   ARWorldExplorer leverages the social media information to provide a better experience for the users. The Social layer is an important part of the App, allowing users to interact with their social network through Augmented Reality interface. Facebook access token is used by Facebook apps to access user’s data without having to asking for permissions too frequently. On the mobile device, after user connects with an app using Facebook Login (managed by Facebook), the app can access user’s public information (public profile and friendlist). If an app wants to access other private or sensitive information, there will be a Login Dialog, which lets the user know which permissions he/she is going to expose to the app. After the login process is finished, the app would be provided an access_token. The access_token can be invalidated by two ways:
+  * It can expire after a specific period, which could be a few hours for short-lived tokens or a few days for long-lived tokens (which can be requested with the short-lived tokens).
+  * The user chooses to stop exposing information to the app. 
+
+    On the cloud, we retrieve the users Facebook information using Facebook Query Language (FQL), which allows querying Facebook user data by using a SQL-style interface. It also allows batching multiple queries into a single call. Data returned from an FQL query is in JSON format by default. The cloud currently obtains facebook events details, friends in attendance list for each event, and friends check-ins information.
+
+
+6. Scalability:
 
     Azure Cloud Service allows us to control the scaling level and memory usage in Azure. Web Role and Worker Role can scale independently from each other, giving us the flexibility to control resources for optimal pricing while still maintaining the service availability.
 For example:
