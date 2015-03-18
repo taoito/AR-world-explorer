@@ -39,10 +39,10 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar Opacity="0.5" Mode="Default" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton x:Name="StartAR" IconUri="/icons/appbar.video.png" IsEnabled="True" Text="Start AR" Click="StartARButton_Click"/>
+            <shell:ApplicationBarIconButton x:Name="StartAR" IconUri="/icons/appbar.video.png" IsEnabled="True" Text="Enter Augmented Reality view" Click="StartARButton_Click"/>
             <shell:ApplicationBarIconButton x:Name="MapButton" IconUri="/icons/appbar.map.png" IsEnabled="True" Text="map" Click="MapButton_Click"/>
             <shell:ApplicationBarIconButton x:Name="HeadingButton" IconUri="/icons/appbar.heading.png" IsEnabled="True" Text="Heading" Click="HeadingButton_Click"/>
-            <shell:ApplicationBarIconButton x:Name="Options" IconUri="/icons/appbar.feature.settings.rest.png" IsEnabled="True" Text="Options" Click="OptionsButton_Click"/>
+            <shell:ApplicationBarIconButton x:Name="Options" IconUri="/icons/appbar.feature.settings.rest.png" IsEnabled="True" Text="Settings" Click="OptionsButton_Click"/>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem x:Name="ShowLocal" Text="hide local sites" Click="ShowLocal_Click" />
                 <shell:ApplicationBarMenuItem x:Name="ShowRestaurant" Text="show restaurants" Click="ShowRestaurant_Click" />
