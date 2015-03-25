@@ -37,7 +37,7 @@ Information includes: building names, historical facts, food/shopping places, re
 ###Design 
 The system design includes a lightweight mobile client on Windows Phone, and a backend component running on Windows Azure Cloud Service (Web Role and Worker Role instances) and Azure Storage (Table, Queue and Blob storages).
 
-[!alt tag][doc/SystemArchitecture.jpg]
+![alt tag](doc/SystemArchitecture.jpg)
 
 1. Leveraging The Cloud: 
 
