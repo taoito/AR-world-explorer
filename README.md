@@ -4,8 +4,40 @@ AR World Explorer is an augmented reality app that provides relevant useful info
 
 Information includes: building names, historical facts, food/shopping places, reviews, personal tagged locations, social networking events.
 
-###Design
+##Use Cases:
+
+1. Exploring Local Area
+
+   Steps:
+  * Open app, chooses Local layer. Points smartphone camera towards an area.
+  * Check labels with place names on screen. Click on label, see larger tab with more information about the place.
+  * Example: John is a tourist visiting St. Paul downtown. He spots a nice historic looking building and points his phone towards the building’s direction. A label saying “Minnesota State Capitol” next to the building will show up on his phone’s display. Clicking on the label expands to a larger tab showing historical information, opening hours of the building.
+
+2. Looking for Places
+
+   Steps:
+  * Open app, chooses Food layer. Scan around with the smartphone camera.
+  * Checkout labels of nearby restaurants. Click on label, see tab with more information.
+  * Example: Paul is traveling in Barcelona. He scans his phone around with the app on to see there are any good restaurants nearby for lunch. He sees several labels on screen showing where they are. He chooses one restaurant and its larger tab shows the recent customer reviews, opening hours and outside streetview.
+
+3. Checking out Social Events
+
+   Steps:
+  * Open app, choose Events layer. Scan around with smartphone camera
+  * See labels of nearby Facebook Events. Click on label, sees more information on Event.
+  * Example: Paul is traveling in Barcelona. He scans his phone around with the app on to see there are any good restaurants nearby for lunch. He sees several labels on screen showing where they are. He chooses one restaurant and its larger tab shows the recent customer reviews, opening hours and outside streetview.
+
+4. Saving Custom Locations
+
+   Steps:
+  * Open app, choose Personal layer. Tag current location on the app
+  * Check this label later for the exact location and its direction
+  * Example: Marie just parked her car at the Mall of America. She immediately places a tag of her current position using the app. Later, she can locate her car by checking out its AR label.Worker Role instances may be needed to get details for many distinct places/events.
+
+###Design 
 The system design includes a lightweight mobile client on Windows Phone, and a backend component running on Windows Azure Cloud Service (Web Role and Worker Role instances) and Azure Storage (Table, Queue and Blob storages).
+
+[!alt tag][doc/SystemArchitecture.jpg]
 
 1. Leveraging The Cloud: 
 
@@ -47,32 +79,3 @@ For example:
   * In case where there are many users accessing from a few locations, more Azure Web Role instances can handle the higher amount of incoming requests, while only 1 Worker Role instance is needed to process the workload of gathering the extra details.
   * In another case where there are fewer users accessing from many geographically distributed locations, then just 1 Web Role is sufficient to handle requests, but multiple 
 
-##Use Cases:
-
-1. Exploring Local Area
-
-   Steps:
-  * Open app, chooses Local layer. Points smartphone camera towards an area.
-  * Check labels with place names on screen. Click on label, see larger tab with more information about the place.
-  * Example: John is a tourist visiting St. Paul downtown. He spots a nice historic looking building and points his phone towards the building’s direction. A label saying “Minnesota State Capitol” next to the building will show up on his phone’s display. Clicking on the label expands to a larger tab showing historical information, opening hours of the building.
-
-2. Looking for Places
-
-   Steps:
-  * Open app, chooses Food layer. Scan around with the smartphone camera.
-  * Checkout labels of nearby restaurants. Click on label, see tab with more information.
-  * Example: Paul is traveling in Barcelona. He scans his phone around with the app on to see there are any good restaurants nearby for lunch. He sees several labels on screen showing where they are. He chooses one restaurant and its larger tab shows the recent customer reviews, opening hours and outside streetview.
-
-3. Checking out Social Events
-
-   Steps:
-  * Open app, choose Events layer. Scan around with smartphone camera
-  * See labels of nearby Facebook Events. Click on label, sees more information on Event.
-  * Example: Paul is traveling in Barcelona. He scans his phone around with the app on to see there are any good restaurants nearby for lunch. He sees several labels on screen showing where they are. He chooses one restaurant and its larger tab shows the recent customer reviews, opening hours and outside streetview.
-
-4. Saving Custom Locations
-
-   Steps:
-  * Open app, choose Personal layer. Tag current location on the app
-  * Check this label later for the exact location and its direction
-  * Example: Marie just parked her car at the Mall of America. She immediately places a tag of her current position using the app. Later, she can locate her car by checking out its AR label.Worker Role instances may be needed to get details for many distinct places/events.
