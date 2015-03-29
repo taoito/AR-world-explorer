@@ -11,7 +11,7 @@ Information includes: building names, historical facts, food/shopping places, re
    Steps:
   * Open app, chooses Local layer. Points smartphone camera towards an area.
   * Check labels with place names on screen. Click on label, see larger tab with more information about the place.
-  * Example: John is a tourist visiting St. Paul downtown. He spots a nice historic looking building and points his phone towards the buildingís direction. A label saying ìMinnesota State Capitolî next to the building will show up on his phoneís display. Clicking on the label expands to a larger tab showing historical information, opening hours of the building.
+  * Example: John is a tourist visiting St. Paul downtown. He spots a nice historic looking building and points his phone towards the building‚Äôs direction. A label saying ‚ÄúMinnesota State Capitol‚Äù next to the building will show up on his phone‚Äôs display. Clicking on the label expands to a larger tab showing historical information, opening hours of the building.
 
 2. Looking for Places
 
@@ -53,7 +53,7 @@ The system design includes a lightweight mobile client on Windows Phone, and a b
 
 4. GART Library:
 
-    The GART library integrates Augmented Reality into a Windows Phone app using the Motion API shipped with Windows Phone Mango (WP7.5). GART is used to to generate the AR labels from coordinates sent from the cloud. The phone will pass location coordinates (received as part of the cloudís JSON response for basic requests) into GART lib which will calculate the appropriate display location for the AR labels, containing place names and links to a page for information, which are made to appear on screen. The use of the GART library not only simplifies the code on the mobile side but allows to provide our application with more functionality i.e. with the different layers (food, social, personal) to filter place search results.
+    The GART library integrates Augmented Reality into a Windows Phone app using the Motion API shipped with Windows Phone Mango (WP7.5). GART is used to to generate the AR labels from coordinates sent from the cloud. The phone will pass location coordinates (received as part of the cloud‚Äôs JSON response for basic requests) into GART lib which will calculate the appropriate display location for the AR labels, containing place names and links to a page for information, which are made to appear on screen. The use of the GART library not only simplifies the code on the mobile side but allows to provide our application with more functionality i.e. with the different layers (food, social, personal) to filter place search results.
 
 5. Caching Policy:
 
@@ -65,12 +65,11 @@ The system design includes a lightweight mobile client on Windows Phone, and a b
 
 6. Social Integration:
 
-   ARWorldExplorer leverages the social media information to provide a better experience for the users. The Social layer is an important part of the App, allowing users to interact with their social network through Augmented Reality interface. Facebook access token is used by Facebook apps to access userís data without having to asking for permissions too frequently. On the mobile device, after user connects with an app using Facebook Login (managed by Facebook), the app can access userís public information (public profile and friendlist). If an app wants to access other private or sensitive information, there will be a Login Dialog, which lets the user know which permissions he/she is going to expose to the app. After the login process is finished, the app would be provided an access_token. The access_token can be invalidated by two ways:
+   ARWorldExplorer leverages the social media information to provide a better experience for the users. The Social layer is an important part of the App, allowing users to interact with their social network through Augmented Reality interface. Facebook access token is used by Facebook apps to access user‚Äôs data without having to asking for permissions too frequently. On the mobile device, after user connects with an app using Facebook Login (managed by Facebook), the app can access user‚Äôs public information (public profile and friendlist). If an app wants to access other private or sensitive information, there will be a Login Dialog, which lets the user know which permissions he/she is going to expose to the app. After the login process is finished, the app would be provided an access_token. The access_token can be invalidated by two ways:
   * It can expire after a specific period, which could be a few hours for short-lived tokens or a few days for long-lived tokens (which can be requested with the short-lived tokens).
   * The user chooses to stop exposing information to the app. 
 
     On the cloud, we retrieve the users Facebook information using Facebook Query Language (FQL), which allows querying Facebook user data by using a SQL-style interface. It also allows batching multiple queries into a single call. Data returned from an FQL query is in JSON format by default. The cloud currently obtains facebook events details, friends in attendance list for each event, and friends check-ins information.
-
 
 7. Scalability:
 
@@ -80,5 +79,4 @@ For example:
   * In another case where there are fewer users accessing from many geographically distributed locations, then just 1 Web Role is sufficient to handle requests, but multiple Worker Role instances may be needed to get details for many distinct places/events.
 
 8. Sample Data Flow / Function Calls
-
 ![alt tag](doc/SampleDataFlow.jpg)
