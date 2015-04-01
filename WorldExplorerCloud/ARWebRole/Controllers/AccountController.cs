@@ -317,11 +317,12 @@ namespace ARWebRole.Controllers
                 AuthenticationClientData clientData = OAuthWebSecurity.GetOAuthClientData(account.Provider);
 
                 externalLogins.Add(new ExternalLogin
-                {
-                    Provider = account.Provider,
-                    ProviderDisplayName = clientData.DisplayName,
-                    ProviderUserId = account.ProviderUserId,
-                });
+                    {
+                        Provider = account.Provider,
+                        ProviderDisplayName = clientData.DisplayName,
+                        ProviderUserId = account.ProviderUserId,
+                    }
+                );
             }
 
             ViewBag.ShowRemoveButton = externalLogins.Count > 1 || OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));

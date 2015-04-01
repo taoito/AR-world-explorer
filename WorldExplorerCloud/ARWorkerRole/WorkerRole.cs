@@ -397,8 +397,6 @@ namespace ARWorkerRole
             placeOfInterestTable.Execute(insertOperation3);
         */
 
-            
-
             // Get detailed information for each place.
             foreach (GooglePlaceTable gPlace in infoQueueItem.newGooglePlaces)
             {

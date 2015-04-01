@@ -9,7 +9,6 @@ namespace ARWebRole.Utilities
     {
         private Communication()
         {
-
         }
 
         static public string createFacebookSearchRequest(double lat, double lon, double radius, string accessToken, string query = ".*")
@@ -38,8 +37,7 @@ namespace ARWebRole.Utilities
         static public string createFacebookEventRequest(string eventId, string accessToken)
         {
             string urlRequest = "https://graph.facebook.com/" + eventId + "?" +
-                    "fields=name,venue" +
-                    "&access_token=" + accessToken;
+                                "fields=name,venue" + "&access_token=" + accessToken;
 
             return urlRequest;
         }
@@ -47,28 +45,24 @@ namespace ARWebRole.Utilities
         static public string createFacebookLocationRequest(string locationId, string accessToken)
         {
             string urlRequest = "https://graph.facebook.com/" + locationId + "?" +
-                    "fields=location" +
-                    "&access_token=" + accessToken;
+                                "fields=location" + "&access_token=" + accessToken;
 
             return urlRequest;
         }
 
         static public string createFacebookFriendListRequest(string userId, string accessToken)
         {
-            return "https://graph.facebook.com/" + userId + "/friends?" + 
-                    "access_token=" + accessToken;
+            return "https://graph.facebook.com/" + userId + "/friends?" + "access_token=" + accessToken;
         }
 
         static public string createFacebookGetUserEventRequest(string userId, string accessToken)
         {
-            return "https://graph.facebook.com/" + userId + "/events?" +
-                    "access_token=" + accessToken;
+            return "https://graph.facebook.com/" + userId + "/events?" + "access_token=" + accessToken;
         }
 
         static public string createFacebookCheckinRequest(string userId, string accessToken)
         {
-            return "https://graph.facebook.com/" + userId + "/checkins?" +
-                    "access_token=" + accessToken;
+            return "https://graph.facebook.com/" + userId + "/checkins?" + "access_token=" + accessToken;
         }
     }
 }
