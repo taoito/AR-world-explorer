@@ -87,7 +87,6 @@ namespace ARWebRole.Controllers
                 Byte[] barray;
                 string base64String;
 
-
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("image/jpeg"));
                 HttpResponseMessage httpResponse = client.GetAsync(url).Result;
@@ -250,7 +249,6 @@ namespace ARWebRole.Controllers
                 }
 
                 FacebookLocation el = new FacebookLocation();
-
                 JsonObject eventVenue;
 
                 try
@@ -294,7 +292,6 @@ namespace ARWebRole.Controllers
                 }
 
                 fe.venue = el;
-
                 eventDictionary.Add(fe.eid, fe);
             }
 

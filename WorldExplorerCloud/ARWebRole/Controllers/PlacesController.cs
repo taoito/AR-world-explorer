@@ -125,7 +125,6 @@ namespace ARWebRole.Controllers
                 Byte[] barray;
                 string base64String;
 
-
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("image/jpeg"));
                 HttpResponseMessage httpResponse = client.GetAsync(url).Result;
@@ -192,9 +191,7 @@ namespace ARWebRole.Controllers
         public AzureSearchResult GetList(double lat, double lon, double radius, string type)
         {
             //AzureSearchResult azureSearchResult = sp.getPlaceInfo(lat, lon, radius, type);
-
             //if (azureSearchResult != null) return azureSearchResult;
-
             string url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" +
                 lat.ToString() + "," + lon.ToString() + "&radius=" + radius.ToString() +
                 "&types=" + type + "&sensor=false&key=" + GoogleAPIKey;
@@ -243,7 +240,6 @@ namespace ARWebRole.Controllers
                 Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
                 throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Could not contact Google Places API"));
             }
-            
         }
     }
 }

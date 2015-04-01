@@ -44,7 +44,6 @@ namespace ARWebRole.Controllers
         public ActionResult Index()
         {
             //ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
             TableRequestOptions reqOptions = new TableRequestOptions()
             {
                 MaximumExecutionTime = TimeSpan.FromSeconds(1.5),
@@ -65,10 +64,7 @@ namespace ARWebRole.Controllers
             }
 
             return View(placeLists);
-            //return View();
-
         }
-
 
         public ActionResult Delete(string partitionKey, string rowKey)
         {
@@ -107,14 +103,12 @@ namespace ARWebRole.Controllers
         public ActionResult About()
         {
             //ViewBag.Message = "Your app description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
             //ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
