@@ -12,12 +12,16 @@ namespace ARWebRole.Models
             get { return this.RowKey; }
             set { this.RowKey = value; }
         }
+
         [Required]
         public double Lat { get; set; }
+
         [Required]
         public double Lng { get; set; }
+
         [Required]
         public string Name { get; set; }
+
         public string Reference { get; set; }
         public string Types { get; set; }
         public string Address { get; set; }

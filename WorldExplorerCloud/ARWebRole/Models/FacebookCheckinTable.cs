@@ -6,7 +6,6 @@ namespace ARWebRole.Models
 {
     public class FacebookCheckinTable : TableEntity
     {
-      
         [Required]
         public string UserId
         {

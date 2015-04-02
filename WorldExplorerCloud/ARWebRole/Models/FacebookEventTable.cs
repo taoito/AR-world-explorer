@@ -50,8 +50,9 @@ namespace ARWebRole.Models
 
         public FacebookEventTable() { }
 
-        public FacebookEventTable(string UserId, string Id, double Lat, double Lng, string Name, string Description, string HostName, 
-                                string Address, string StartTime, string EndTime, string Pic, string AccessToken) 
+        public FacebookEventTable(string UserId, string Id, double Lat, double Lng, string Name, 
+                                  string Description, string HostName, string Address, 
+                                  string StartTime, string EndTime, string Pic, string AccessToken) 
         {
             this.UserId = UserId;
             this.Id = Id;
