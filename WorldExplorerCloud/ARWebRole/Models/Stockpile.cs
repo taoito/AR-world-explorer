@@ -45,7 +45,6 @@ namespace ARWebRole.Models
                 public long timestamp { get; set; }
 
                 public Stock() { }
-
                 public Stock(Place place, String type, long time)
                 {
                     this.place = place;
@@ -107,7 +106,6 @@ namespace ARWebRole.Models
             public void saveResult(AzureSearchResult result, string type)
             {
                 Stock stock;
-
                 // adds AzureSearchResults to hashtable
                 foreach (Place place in result.places)
                 {
@@ -195,7 +193,6 @@ namespace ARWebRole.Models
                 {
                     result = null;
                 }
-
                 return result;
             }
 

@@ -36,5 +36,4 @@ namespace ARWebRole.Models
         public string PhotoString { get; set; }
         public string StreetViewString { get; set; }
     }
-
 }
