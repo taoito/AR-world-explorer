@@ -1,8 +1,9 @@
-##Augmented Reality World Explorer repository
+﻿##Augmented Reality World Explorer repository
 
 AR World Explorer is an augmented reality app that provides relevant useful information about places and social events happening around the users. This information is presented in real-time, in the form of augmented reality labels, as users point their smartphones camera towards the areas of interest.
 
 Information includes: building names, historical facts, food/shopping places, reviews, personal tagged locations, social networking events.
+
 
 ##Use Cases:
 
@@ -79,4 +80,5 @@ For example:
   * In another case where there are fewer users accessing from many geographically distributed locations, then just 1 Web Role is sufficient to handle requests, but multiple Worker Role instances may be needed to get details for many distinct places/events.
 
 8. Sample Data Flow / Function Calls
+
 ![alt tag](doc/SampleDataFlow.jpg)
